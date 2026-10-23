@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Catalog.DAL/Catalog.DAL.csproj" />
+  <Project Path="CatalogApp.Domain/CatalogApp.Domain.csproj" />
+  <Project Path="CatalogApp/CatalogApp.csproj" />
+</Solution>

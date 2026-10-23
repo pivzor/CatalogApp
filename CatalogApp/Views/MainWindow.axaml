@@ -1,0 +1,64 @@
+﻿
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CatalogApp.ViewModels"
+        x:Class="CatalogApp.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="CatalogApp"
+        Width="1000"
+        Height="600"
+        MinWidth="700"
+        MinHeight="400">
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="20">
+
+        <TextBlock Grid.Row="0"
+                   Text="Справочник машин"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   Margin="0,0,0,16" />
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    Margin="0,0,0,12">
+
+            <Button Content="Добавить машину"
+                    Command="{Binding AddMachineCommand}" />
+
+            <Button Content="Обновить"
+                    Command="{Binding RefreshCommand}" />
+
+        </StackPanel>
+
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding Machines}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  GridLinesVisibility="All">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Binding="{Binding Id}"
+                                    Width="70" />
+
+                <DataGridTextColumn Header="Марка"
+                                    Binding="{Binding Brand}"
+                                    Width="*" />
+
+                <DataGridTextColumn Header="Модель"
+                                    Binding="{Binding Model}"
+                                    Width="*" />
+
+                <DataGridTextColumn Header="Номер"
+                                    Binding="{Binding Number}"
+                                    Width="*" />
+
+                <DataGridTextColumn Header="Год выпуска"
+                                    Binding="{Binding Year}"
+                                    Width="120" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

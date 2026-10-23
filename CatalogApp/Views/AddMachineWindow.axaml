@@ -1,0 +1,41 @@
+
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CatalogApp.ViewModels"
+        x:Class="CatalogApp.Views.AddMachineWindow"
+        x:DataType="vm:AddMachineViewModel"
+        Title="Добавление машины"
+        Width="420"
+        Height="420"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="24" Spacing="12">
+        <TextBlock Text="Новая машина"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,8" />
+
+        <TextBlock Text="Марка" />
+        <TextBox Text="{Binding Brand}"
+                 Watermark="Например, КамАЗ" />
+
+        <TextBlock Text="Модель" />
+        <TextBox Text="{Binding Model}"
+                 Watermark="Введите модель" />
+
+        <TextBlock Text="Государственный номер" />
+        <TextBox Text="{Binding Number}"
+                 Watermark="Введите госномер" />
+
+        <TextBlock Text="Год выпуска" />
+        <NumericUpDown Minimum="1900"
+                       Maximum="2100"
+                       Value="{Binding Year}" />
+
+        <Button Content="Сохранить"
+                Command="{Binding SaveCommand}"
+                HorizontalAlignment="Stretch"
+                Margin="0,10,0,0" />
+    </StackPanel>
+</Window>
