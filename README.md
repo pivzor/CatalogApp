@@ -139,17 +139,17 @@ dotnet run --project CatalogApp
 
 ## 6. Скриншоты приложения
 ### Справочник авто
-![Справочник авто CatalogApp](Assets/1.png)
+![Справочник авто CatalogApp](picture/1.png)
 
 ### Добавление авто
-![Добавление авто CatalogApp](Assets/2.png)
+![Добавление авто CatalogApp](picture/2.png)
 
 ### Удаление авто
-![Удаление авто CatalogApp](Assets/3.png)
+![Удаление авто CatalogApp](picture/3.png)
 
 ### Справочник Водителей
-![Справочник Водителей CatalogApp](Assets/4.png)
+![Справочник Водителей CatalogApp](picture/4.png)
 
 ### Справочник Экипажа
-![Справочник Экипажа CatalogApp](Assets/5.png)
->>>>>>> d0daf89 (Изменение README и Assets)
+![Справочник Экипажа CatalogApp](picture/5.png)
+
