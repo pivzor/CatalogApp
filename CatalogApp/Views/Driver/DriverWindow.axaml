@@ -1,0 +1,58 @@
+
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="CatalogApp.Views.DriverWindow"
+        Title="Водитель"
+        Width="450"
+        Height="430"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+          Margin="20"
+          RowSpacing="12">
+
+        <TextBlock x:Name="WindowTitle"
+                   Grid.Row="0"
+                   Text="Данные водителя"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Margin="0,0,0,8" />
+
+        <StackPanel Grid.Row="1" Spacing="5">
+            <TextBlock Text="ФИО" />
+            <TextBox x:Name="FullNameTextBox"
+                     Watermark="Введите ФИО" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Spacing="5">
+            <TextBlock Text="Номер водительского удостоверения" />
+            <TextBox x:Name="LicenseNumberTextBox"
+                     Watermark="Введите номер удостоверения" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Spacing="5">
+            <TextBlock Text="Телефон" />
+            <TextBox x:Name="PhoneTextBox"
+                     Watermark="Введите телефон" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Spacing="5">
+            <TextBlock Text="Стаж работы (лет)" />
+            <NumericUpDown x:Name="ExperienceYearsInput"
+                           Minimum="0"
+                           Maximum="70"
+                           Value="0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10">
+            <Button Content="Сохранить"
+                    Click="Save_Click" />
+            <Button Content="Отмена"
+                    Click="Cancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

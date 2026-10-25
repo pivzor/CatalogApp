@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+bin/
+obj/
+publish/
+*.dll
+*.pdb
+*.deps.json
+*.runtimeconfig.json
+
+CatalogApp-win-x64.zip
