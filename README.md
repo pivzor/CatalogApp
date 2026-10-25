@@ -1,10 +1,10 @@
-##Технологии
+## Технологии
 
-###Язык программирования: C#
-###Платформа: .NET 10
-###Графический интерфейс: Avalonia UI
-###База данных: PostgreSQL
-###ORM: Entity Framework Core
+### - C#
+### - .NET 10
+### - Avalonia UI
+### - PostgreSQL
+### - Entity Framework Core
 
 
 ## 1. Клонирование репозитория
