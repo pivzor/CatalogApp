@@ -23,5 +23,7 @@ namespace CatalogApp.Domain.Entities
 
         [Required]
         public DateTime CreatedAt { get; set; }
+
+        public bool IsActive { get; set; } = true;
     }
 }

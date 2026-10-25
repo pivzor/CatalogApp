@@ -1,0 +1,56 @@
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CatalogApp.ViewModels"
+             x:Class="CatalogApp.Views.DriversControl"
+             x:DataType="vm:DriversViewModel">
+
+    <Grid RowDefinitions="Auto,Auto,*" Margin="20">
+        <TextBlock Grid.Row="0"
+                   Text="Справочник водителей"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   Margin="0,0,0,16" />
+
+
+        <StackPanel Grid.Row="1"
+            Orientation="Horizontal"
+            Spacing="10"
+            Margin="0,0,0,12">
+            <Button Content="Добавить водителя"
+                    Click="Add_Click" />
+            <Button Content="Редактировать"
+                    Click="Edit_Click" />
+            <Button Content="Удалить"
+                    Click="Delete_Click" />
+            <Button Content="Обновить"
+                    Click="Refresh_Click" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding Drivers}"
+                  SelectedItem="{Binding SelectedDriver, Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  GridLinesVisibility="All">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Binding="{Binding Id}"
+                                    Width="70" />
+                <DataGridTextColumn Header="ФИО"
+                                    Binding="{Binding FullName}"
+                                    Width="2*" />
+                <DataGridTextColumn Header="Номер удостоверения"
+                                    Binding="{Binding LicenseNumber}"
+                                    Width="*" />
+                <DataGridTextColumn Header="Телефон"
+                                    Binding="{Binding Phone}"
+                                    Width="*" />
+                <DataGridTextColumn Header="Стаж (лет)"
+                                    Binding="{Binding ExperienceYears}"
+                                    Width="100" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</UserControl>

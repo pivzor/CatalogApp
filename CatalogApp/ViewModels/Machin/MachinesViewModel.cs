@@ -1,10 +1,9 @@
-﻿
-using CatalogApp.Domain;
+﻿using CatalogApp.Domain;
 using CatalogApp.Domain.Entities;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace CatalogApp.ViewModels;
+namespace CatalogApp.ViewModels.Machin;
 
 public class MachinesViewModel
 {
@@ -22,11 +21,15 @@ public class MachinesViewModel
     {
         Machines.Clear();
 
-        List<Machine> machines = _repository.GetAll();
-
-        foreach (Machine machine in machines)
+        foreach (Machine machine in _repository.GetAll())
         {
             Machines.Add(machine);
         }
+    }
+
+    public void DeleteMachine(int id)
+    {
+        _repository.Delete(id);
+        LoadMachines();
     }
 }

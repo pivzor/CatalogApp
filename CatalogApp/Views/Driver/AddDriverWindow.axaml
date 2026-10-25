@@ -1,0 +1,59 @@
+
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CatalogApp.ViewModels"
+        x:Class="CatalogApp.Views.AddDriverWindow"
+        x:DataType="vm:AddDriverViewModel"
+        Title="{Binding WindowTitle}"
+        Width="450"
+        Height="480"
+        MinWidth="400"
+        MinHeight="430"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+          Margin="20"
+          RowSpacing="12">
+
+        <TextBlock Grid.Row="0"
+                   Text="{Binding FormTitle}"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,8" />
+
+        <StackPanel Grid.Row="1" Spacing="5" >
+            <TextBlock Text="ФИО" />
+            <TextBox Text="{Binding FullName}"
+                     Watermark="Введите ФИО" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Spacing="5">
+            <TextBlock Text="Номер водительского удостоверения" />
+            <TextBox Text="{Binding LicenseNumber}"
+                     Watermark="Введите номер удостоверения" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Spacing="5">
+            <TextBlock Text="Телефон" />
+            <TextBox Text="{Binding Phone}"
+                     Watermark="Введите телефон" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Spacing="5">
+            <TextBlock Text="Стаж работы (лет)" />
+            <NumericUpDown Value="{Binding ExperienceYears}"
+                           Minimum="0"
+                           Maximum="70" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10">
+            <Button Content="Сохранить"
+                    Command="{Binding SaveCommand}" />
+            <Button Content="Отмена"
+                    Click="Cancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -40,4 +40,10 @@
     <ProjectReference Include="..\Catalog.DAL\Catalog.DAL.csproj" />
     <ProjectReference Include="..\CatalogApp.Domain\CatalogApp.Domain.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Machine\DeleteMachineWindow.axaml.cs">
+      <DependentUpon>DeleteMachineWindow.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

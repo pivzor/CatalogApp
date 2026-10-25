@@ -1,0 +1,30 @@
+
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="CatalogApp.Views.DeleteDriverWindow"
+        Title="Подтверждение удаления"
+        Width="420"
+        Height="260"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="14">
+        <TextBlock Text="Удалить выбранного водителя?"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   TextWrapping="Wrap" />
+
+        <TextBlock x:Name="DriverInfo"
+                   TextWrapping="Wrap" />
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10">
+            <Button Content="Отмена"
+                    Click="Cancel_Click" />
+
+            <Button Content="Удалить"
+                    Click="Delete_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -4,61 +4,77 @@
         xmlns:vm="using:CatalogApp.ViewModels"
         x:Class="CatalogApp.Views.MainWindow"
         x:DataType="vm:MainViewModel"
-        Title="CatalogApp"
+        xmlns:views="using:CatalogApp.Views"
+        Title="Справочники"
         Width="1000"
         Height="600"
         MinWidth="700"
         MinHeight="400">
 
-    <Grid RowDefinitions="Auto,Auto,*"
-          Margin="20">
+    <TabControl Margin="20">
+        <TabItem Header="Машины">
+            <Grid RowDefinitions="Auto,Auto,*" Margin="10">
+                <TextBlock Grid.Row="0"
+                           Text="Справочник машин"
+                           FontSize="26"
+                           FontWeight="Bold"
+                           Margin="0,0,0,16" />
 
-        <TextBlock Grid.Row="0"
-                   Text="Справочник машин"
-                   FontSize="26"
-                   FontWeight="Bold"
-                   Margin="0,0,0,16" />
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal"
+                            Spacing="10"
+                            Margin="0,0,0,12">
+                    <Button Content="Добавить машину"
+                            Command="{Binding AddMachineCommand}" />
 
-        <StackPanel Grid.Row="1"
-                    Orientation="Horizontal"
-                    Spacing="10"
-                    Margin="0,0,0,12">
+                    <Button Content="Редактировать"
+                            Command="{Binding EditMachineCommand}" />
 
-            <Button Content="Добавить машину"
-                    Command="{Binding AddMachineCommand}" />
+                    <Button Content="Удалить"
+                            Command="{Binding DeleteMachineCommand}" />
 
-            <Button Content="Обновить"
-                    Command="{Binding RefreshCommand}" />
+                    <Button Content="Обновить"
+                            Command="{Binding RefreshCommand}" />
+                </StackPanel>
 
-        </StackPanel>
+                <DataGrid Grid.Row="2"
+                          ItemsSource="{Binding Machines}"
+                          SelectedItem="{Binding SelectedMachine, Mode=TwoWay}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          GridLinesVisibility="All">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"
+                                            Binding="{Binding Id}"
+                                            Width="70" />
 
-        <DataGrid Grid.Row="2"
-                  ItemsSource="{Binding Machines}"
-                  AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  GridLinesVisibility="All">
+                        <DataGridTextColumn Header="Марка"
+                                            Binding="{Binding Brand}"
+                                            Width="*" />
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"
-                                    Binding="{Binding Id}"
-                                    Width="70" />
+                        <DataGridTextColumn Header="Модель"
+                                            Binding="{Binding Model}"
+                                            Width="*" />
 
-                <DataGridTextColumn Header="Марка"
-                                    Binding="{Binding Brand}"
-                                    Width="*" />
+                        <DataGridTextColumn Header="Номер"
+                                            Binding="{Binding Number}"
+                                            Width="*" />
 
-                <DataGridTextColumn Header="Модель"
-                                    Binding="{Binding Model}"
-                                    Width="*" />
+                        <DataGridTextColumn Header="Год выпуска"
+                                            Binding="{Binding Year}"
+                                            Width="120" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
 
-                <DataGridTextColumn Header="Номер"
-                                    Binding="{Binding Number}"
-                                    Width="*" />
+        <TabItem Header="Водители">
+            <views:DriversControl x:Name="DriversControl" />
+        </TabItem>
 
-                <DataGridTextColumn Header="Год выпуска"
-                                    Binding="{Binding Year}"
-                                    Width="120" />
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+        <TabItem Header="Экипажи">
+            <views:CrewsControl x:Name="CrewsControl" />
+        </TabItem>
+
+    </TabControl>
 </Window>

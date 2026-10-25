@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CatalogApp.ViewModels"
+             xmlns:models="using:CatalogApp.Domain.Entities"
+             x:Class="CatalogApp.Views.CrewsControl"
+             x:DataType="vm:CrewsViewModel">
+
+    <Grid RowDefinitions="Auto,Auto,*" Margin="20">
+        <TextBlock Grid.Row="0"
+                   Text="Справочник экипажей"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   Margin="0,0,0,16" />
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    Margin="0,0,0,12">
+            <Button Content="Добавить экипаж"
+                    Click="Add_Click" />
+            <Button Content="Редактировать"
+                    Click="Edit_Click" />
+            <Button Content="Удалить"
+                    Click="Delete_Click" />
+            <Button Content="Обновить"
+                    Click="Refresh_Click" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding Crews}"
+                  SelectedItem="{Binding SelectedCrew, Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  GridLinesVisibility="All">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Binding="{Binding Id}"
+                                    Width="70" />
+
+                <DataGridTextColumn Header="Машина"
+                                    Binding="{Binding Machine.Brand}"
+                                    Width="*" />
+
+                <DataGridTextColumn Header="Модель"
+                                    Binding="{Binding Machine.Model}"
+                                    Width="*" />
+
+                <DataGridTextColumn Header="Водитель"
+                                    Binding="{Binding Driver.FullName}"
+                                    Width="2*" />
+
+                <DataGridTextColumn Header="Дата создания"
+                                    Binding="{Binding CreatedAt, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}"
+                                    Width="2*" />
+
+                <DataGridCheckBoxColumn Header="Активен"
+                                        Binding="{Binding IsActive}"
+                                        IsReadOnly="True"
+                                        Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

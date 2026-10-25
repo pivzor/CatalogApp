@@ -36,6 +36,9 @@ namespace Catalog.DAL.Migrations
                     b.Property<int>("DriverID")
                         .HasColumnType("integer");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
                     b.Property<int>("MachineId")
                         .HasColumnType("integer");
 

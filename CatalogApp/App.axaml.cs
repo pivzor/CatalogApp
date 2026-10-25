@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 using Catalog.DAL;
 using CatalogApp.Domain;
 using CatalogApp.ViewModels;
+using CatalogApp.ViewModels.Machin;
 using CatalogApp.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,7 +25,7 @@ public partial class App : Application
     {
         ServiceCollection services = new ServiceCollection();
 
-        services.AddDbContext<AppDbContext>(options =>
+        services.AddDbContextFactory<AppDbContext>(options =>
             options.UseNpgsql(
                 "Host=localhost;Port=5432;Database=db;Username=postgres;Password=12345678"));
 
@@ -32,9 +33,16 @@ public partial class App : Application
             typeof(IBaseRepository<>),
             typeof(BaseRepository<>));
 
-        services.AddTransient<MachinesViewModel>();
         services.AddTransient<MainViewModel>();
+
+        services.AddTransient<MachinesViewModel>();
         services.AddTransient<AddMachineViewModel>();
+
+        services.AddTransient<DriversViewModel>();
+        services.AddTransient<AddDriverViewModel>();
+
+        services.AddTransient<CrewsViewModel>();
+        services.AddTransient<AddCrewViewModel>();
 
         Services = services.BuildServiceProvider();
 

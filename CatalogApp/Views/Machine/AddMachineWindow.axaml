@@ -1,17 +1,16 @@
-
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:CatalogApp.ViewModels"
         x:Class="CatalogApp.Views.AddMachineWindow"
         x:DataType="vm:AddMachineViewModel"
-        Title="Добавление машины"
+        Title="{Binding WindowTitle}"
         Width="420"
         Height="420"
         CanResize="False"
         WindowStartupLocation="CenterOwner">
 
     <StackPanel Margin="24" Spacing="12">
-        <TextBlock Text="Новая машина"
+        <TextBlock Text="{Binding FormTitle}"
                    FontSize="24"
                    FontWeight="Bold"
                    Margin="0,0,0,8" />

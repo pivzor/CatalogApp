@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Catalog.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261023212513_Init")]
+    [Migration("20261025165246_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -38,6 +38,9 @@ namespace Catalog.DAL.Migrations
 
                     b.Property<int>("DriverID")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("MachineId")
                         .HasColumnType("integer");
